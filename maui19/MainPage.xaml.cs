@@ -12,29 +12,29 @@ namespace MauiApp19
 
         private void OnAlertClicked(object? sender, EventArgs e)
         {
-            if (RodzajLekarza.SelectedItem == null || string.IsNullOrWhiteSpace(RodzajLekarza.SelectedItem.ToString()))
+            if( Rodzaj_Lekarza || string.IsNullOrWhiteSpace(Rodzaj_Lekarza.SelectedItem.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać rodzaj lekarza.", "OK");
                 return;
             }
 
 
-            if (Data.Date == null || string.IsNullOrWhiteSpace(Data.Date.ToString()))
+            if (Data.Date == null || string.IsNullOrWhiteSpace(DataPicker.Date.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać datę wizyty.", "OK");
                 return;
             }
 
 
-            if (Godzina.Time == null || string.IsNullOrWhiteSpace(Godzina.Time.ToString()))
+            if (Godzina.Time == null || string.IsNullOrWhiteSpace(GodzinaPicker.Time.ToString()))
             {
                 DisplayAlert("Alert", "Proszę wybrać godzinę wizyty.", "OK");
                 return;
             }
 
-            string rodzajlekarza = RodzajLekarza.SelectedItem.ToString();
-            string data = Data.Date.ToString();
-            string godzina = Godzina.Time.ToString();
+            string rodzajlekarza = Rodzaj_Lekarza.SelectedItem.ToString();
+            string data = Data.DatePicker.ToString();
+            string godzina = GodzinaPicker.Time.ToString();
 
             DisplayAlert("Alert", "Wizyta u: " + rodzajlekarza + ", dnia: " + data + ", o godzinie: " + godzina, "OK");
         }
